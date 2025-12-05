@@ -1,0 +1,68 @@
+# A short function demonstrating basic input, calculation, and output.
+def square_number(x):
+    """Returns the square of a number."""
+    return x * x
+
+# Get input and ensure it's a number
+try:
+    num_str = input("Enter a number to square: ")
+    number = float(num_str)
+    
+    # Call the function and print the result
+    result = square_number(number)
+    print(f"The square of {number} is {result}")
+except ValueError:
+    print("Invalid input. Please enter a valid number.")
+    
+# A fundamental example of a Python class (Task 1 context).
+class Book:
+    """A basic representation of a book object."""
+    def __init__(self, title, author):
+        self.title = title
+        self.author = author
+        self.is_available = True
+
+    def __str__(self):
+        # A magic method for a user-friendly representation (Task 1 context)
+        status = "Available" if self.is_available else "Issued"
+        return f"Title: {self.title} | Author: {self.author} | Status: {status}"
+
+# Create an instance of the class
+my_book = Book("The Great Gatsby", "F. Scott Fitzgerald")
+print(my_book)
+
+# Modify an attribute
+my_book.is_available = False
+print(f"After issue: {my_book}")
+# A very common and efficient Python technique for list creation/filtering.
+
+# Original list of numbers
+numbers = [1, 5, 8, 12, 15, 20, 23, 30]
+
+# Use a list comprehension to create a new list containing only even numbers
+# This is equivalent to a multi-line for loop, but more concise.
+even_numbers = [n for n in numbers if n % 2 == 0]
+
+print("Original Numbers:", numbers)
+print("Even Numbers (using list comprehension):", even_numbers)
+
+# Demonstrates iterating over a dictionary's keys and values simultaneously.
+
+# A dictionary mapping book ISBNs to titles (useful for catalog search in Task 2)
+book_catalog = {
+    "978-0140283084": "1984",
+    "978-0061120084": "To Kill a Mockingbird",
+    "978-1503606994": "The Martian"
+}
+
+print("--- Library Catalog Entries ---")
+
+# Iterate using the .items() method
+for isbn, title in book_catalog.items():
+    print(f"ISBN: {isbn} -> Title: {title}")
+
+# You can easily search this way:
+search_isbn = "978-0140283084"
+if search_isbn in book_catalog:
+    print(f"\nFound book for {search_isbn}: {book_catalog[search_isbn]}")    
+    
